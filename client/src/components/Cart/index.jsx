@@ -27,13 +27,13 @@ const Cart = () => {
   useEffect(() => {
     async function getCart() {
       const cart = await idbPromise('cart', 'get');
-      dispatch(addMultipleToCart([...cart]));
+      dispatch(addMultipleToCart([...(cart || [])]));
     }
 
-    if (!cart.length) {
+    if (!cart?.length) { // Safely check cart length
       getCart();
     }
-  }, [cart.length, dispatch]);
+  }, [cart?.length, dispatch]); // Use optional chaining in dependencies array
 
   const handleToggleCart = () => {
     dispatch(toggleCart());

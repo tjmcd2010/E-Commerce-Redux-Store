@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import ProductItem from '../ProductItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateProducts } from '../../utils/storeSlice';
@@ -9,9 +9,19 @@ import spinner from '../../assets/spinner.gif';
 
 function ProductList() {
   const dispatch = useDispatch();
-  const { products, currentCategory } = useSelector(state => state);
-
   const { loading, data } = useQuery(QUERY_PRODUCTS);
+
+  // Correctly use useMemo outside of useSelector
+  const products = useSelector(state => state.products || []);
+  const currentCategory = useSelector(state => state.currentCategory || '');
+
+  const filteredProducts = useMemo(() => {
+    if (!currentCategory) {
+      return products;
+    }
+    // Assuming there's logic here to filter products based on the current category
+    return products.filter(product => product.category === currentCategory);
+  }, [products, currentCategory]); // Correct dependencies
 
   useEffect(() => {
     if (data) {
@@ -26,6 +36,7 @@ function ProductList() {
     }
   }, [data, loading, dispatch]);
 
+
   function filterProducts() {
     if (!currentCategory) {
       return products;
@@ -39,7 +50,7 @@ function ProductList() {
   return (
     <div className="my-2">
       <h2>Our Products:</h2>
-      {products.length ? (
+      {products && products.length ? ( // Check if products is not undefined and has items
         <div className="flex-row">
           {filterProducts().map((product) => (
             <ProductItem

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { pluralize, idbPromise } from "../../utils/helpers";
 import { useSelector, useDispatch } from 'react-redux';
-import { addToCartAction, updateCartQuantityAction } from "../../utils/storeSlice";
+import { addToCart, updateCartQuantity } from "../../utils/storeSlice";
 
 function ProductItem(item) {
   const dispatch = useDispatch();
@@ -18,13 +18,13 @@ function ProductItem(item) {
   const addToCart = () => {
     const itemInCart = cart.find((cartItem) => cartItem._id === _id);
     if (itemInCart) {
-      dispatch(updateCartQuantityAction(_id, parseInt(itemInCart.purchaseQuantity) + 1));
+      dispatch(updateCartQuantity(_id, parseInt(itemInCart.purchaseQuantity) + 1));
       idbPromise('cart', 'put', {
         ...itemInCart,
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
       });
     } else {
-      dispatch(addToCartAction({ ...item, purchaseQuantity: 1 }));
+      dispatch(addToCart({ ...item, purchaseQuantity: 1 }));
       idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
     }
   };
