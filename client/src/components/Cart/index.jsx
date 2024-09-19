@@ -6,7 +6,7 @@ import { QUERY_CHECKOUT } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
-import { toggleCart, addMultipleToCart } from '../../utils/storeSlice';
+import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import './style.css';
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
@@ -27,7 +27,7 @@ const Cart = () => {
   useEffect(() => {
     async function getCart() {
       const cart = await idbPromise('cart', 'get');
-      dispatch(addMultipleToCart([...(cart || [])]));
+      dispatch(ADD_MULTIPLE_TO_CART([...(cart || [])]));
     }
 
     if (!cart?.length) { // Safely check cart length
@@ -36,7 +36,7 @@ const Cart = () => {
   }, [cart?.length, dispatch]); // Use optional chaining in dependencies array
 
   const handleToggleCart = () => {
-    dispatch(toggleCart());
+    dispatch(TOGGLE_CART());
   };
 
   const calculateTotal = () => {
