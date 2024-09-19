@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { pluralize, idbPromise } from "../../utils/helpers";
 import { useSelector, useDispatch } from 'react-redux';
-import { addToCart, updateCartQuantity } from "../../utils/storeSlice";
+import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 
 function ProductItem(item) {
   const dispatch = useDispatch();
@@ -18,13 +18,13 @@ function ProductItem(item) {
   const addToCart = () => {
     const itemInCart = cart.find((cartItem) => cartItem._id === _id);
     if (itemInCart) {
-      dispatch(updateCartQuantity(_id, parseInt(itemInCart.purchaseQuantity) + 1));
+      dispatch(UPDATE_CART_QUANTITY(_id, parseInt(itemInCart.purchaseQuantity) + 1));
       idbPromise('cart', 'put', {
         ...itemInCart,
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
       });
     } else {
-      dispatch(addToCart({ ...item, purchaseQuantity: 1 }));
+      dispatch( ADD_TO_CART({ ...item, purchaseQuantity: 1 }));
       idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
     }
   };
@@ -42,7 +42,7 @@ function ProductItem(item) {
         <div>{quantity} {pluralize("item", quantity)} in stock</div>
         <span>${price}</span>
       </div>
-      <button onClick={addToCart}>Add to cart</button>
+      <button onClick={ ADD_TO_CART}>Add to cart</button>
     </div>
   );
 }
