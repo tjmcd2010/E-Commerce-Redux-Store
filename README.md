@@ -1,123 +1,82 @@
-# 22 State: Redux Store (Extra Credit)
 
-## Your Task
+  # E-Commerce Redux Store
 
-In this module, you learned how to manage global state using React’s Context API. The Context API is quickly gaining traction as a worthy alternative or perhaps even successor to other libraries that manage global state in tandem with React, such as Flux or MobX. Nonetheless, the open source JavaScript library Redux remains the industry standard for managing complex state in a large-scale React application, and you’ll likely encounter it on the job.
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Your challenge this week is to refactor the e-commerce platform from [Activity 26](../01-Activities/26-Stu_Actions-Reducers/Unsolved) so that it uses [Redux](https://redux.js.org/). You won’t need to make sweeping changes to the code, but you will need to read through the Redux documentation on your own to find the information you need. Some guidelines have been provided in the Getting Started section to point you in the right direction. If you haven't yet, download the [e-commerce platform code from Activity 26](http://static.fullstack-bootcamp.com/fullstack-ground/unit-22/26-Stu_Actions-Reducers.zip).
+  ## Description
+  This is an e-commerce site that was initially built with Context API that I have refactored using React Redux. This site iallows you to view and purchase products, add and remove them from your cart. 
 
-**On the Job**: Web developers frequently have to immerse themselves in a new technology to solve a problem, with only that tool’s documentation for help. They must sift through it to find the information that matches the specific problem they’re trying to solve. This assignment will allow you to practice a skill that you’ll use many times over the course of your career.
+  ## URL of Deployed Application
 
-Remember, this module's Challenge is extra credit. It is not required for submission, nor will it count towards one of the two assignments that you can skip. If you choose to submit this Challenge, you will receive extra credit points on your final grade. However, if you choose not to submit it, your final grade will not be affected in any way. This Challenge is an opportunity for you to further practice your skills and get feedback on it, with the added incentive of receiving extra credit for the work.
+  [View my site on Render](https://e-commerce-redux-store.onrender.com)
 
-## User Story
+  ## Screenshot of Deployed Application
 
-```md
-AS a senior engineer working on an e-commerce platform
-I WANT my platform to use Redux to manage global state instead of the Context API
-SO THAT my website's state management is taken out of the React ecosystem
-```
+  ![E-commerce site with items in cart](./Assets/Cart.png)
 
-## Acceptance Criteria
+  ## Table of Contents
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+  - [Technologies](#technologies)
+  - [License](#license)
+  - [Questions](#questions)
 
-```md
-GIVEN an e-commerce platform that uses Redux to manage global state
-WHEN I review the app’s store
-THEN I find that the app uses a Redux store instead of the Context API
-WHEN I review the way the React front end accesses the store
-THEN I find that the app uses a Redux provider
-WHEN I review the way the app determines changes to its global state
-THEN I find that the app passes reducers to a Redux store instead of using the Context API
-WHEN I review the way the app extracts state data from the store
-THEN I find that the app uses Redux instead of the Context API
-WHEN I review the way the app dispatches actions
-THEN I find that the app uses Redux instead of the Context API
-```
+  ## Installation
+  To run this on your local machine, clone my repository, run npm install, npm run seed and npm run build. Then run npm run develop to start the application. You canl also visit my site on rthe render link provided
 
-## Mock-Up
+  ## Usage
+  This is an e-commerce site to purhcase goods. 
 
-This section reviews the web application's general appearance and functionality.
+  ## Contributing
+  N/A
 
-The following animation shows how a user can register using the Signup page and then navigate to the Products page:
+  ## Tests
+  N/A
 
-![A user registers on the Signup page and then navigates to the Products page, which displays images and descriptions of products.](./Assets/22-state-homework-demo-01.gif)
+  ## Technologies Used
+  
+* [![React][React.js]][React-url]
+* [![Vite][Vite.js]][Vite-url]
+* [![Express][Express.js]][Express-url]
+* [![Graph][GraphQL]][GraphQL-url]
+* [![Mongo][MongoDB]][MongoDB-url]
+  
 
-The following animation shows how the user can select a category, choose a product, view details about it on the product page, and add and remove it from their shopping cart:
+   ## License
+  MIT
 
-![The user selects a category, chooses a product, views details about it on the product page, and adds it to and removes it from their shopping cart.](./Assets/22-state-homework-demo-02.gif)
+  ## Questions
 
-Finally, the user can check out by going to their shopping cart, as shown in the following animation:
+  For any additional questions or feedback, please contact me with the following information:
+  Github: (https://github.com/tjmcd2010)
+  Email: (mailto:tjmcd2010@gmail.com)  
 
-![The user checks out by going to their shopping cart.](./Assets/22-state-homework-demo-03.gif)
+ <!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/bmist41/Cal-Bootcamp-Alumni.svg?style=for-the-badge
+[contributors-url]: https://github.com/bmist41/Cal-Bootcamp-Alumni/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/bmist41/Cal-Bootcamp-Alumni.svg?style=for-the-badge
+[forks-url]: https://github.com/bmist41/Cal-Bootcamp-Alumni/network/members
+[stars-shield]: https://img.shields.io/github/stars/bmist41/Cal-Bootcamp-Alumni.svg?style=for-the-badge
+[stars-url]: https://github.com/bmist41/Cal-Bootcamp-Alumni/stargazers
+[issues-shield]: https://img.shields.io/github/issues/bmist41/Cal-Bootcamp-Alumni.svg?style=for-the-badge
+[issues-url]: https://github.com/bmist41/Cal-Bootcamp-Alumni/issues
+[license-shield]: https://img.shields.io/github/license/bmist41/Cal-Bootcamp-Alumni.svg?style=for-the-badge
+[license-url]: https://github.com/bmist41/Cal-Bootcamp-Alumni/blob/master/LICENSE.txt
+[product-screenshot]: images/screenshot.png
 
-## Getting Started
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Vite.js]: https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=Vite&logoColor=white
+[Vite-url]: https://vitejs.dev
+[ChakraUI]: https://shields.io/badge/chakra--ui-black?logo=chakraui&style=for-the-badge
+[Chakra-url]: https://v2.chakra-ui.com/
+[Express.js]: https://img.shields.io/badge/express-000000?style=for-the-badge&logo=express&logoColor=white
+[Express-url]: https://expressjs.com
+[GraphQL]: https://img.shields.io/badge/GraphQL-E434AA?style=for-the-badge&logo=graphql&logoColor=white
+[GraphQL-url]: https://graphql.org/
+[MongoDB]: https://img.shields.io/badge/-MongoDB-13aa52?style=for-the-badge&logo=mongodb&logoColor=white
+[MongoDB-url]: https://www.mongodb.com
 
-For instructions to add Redux to your application, refer to the [Redux Fundamentals basic tutorial](https://redux.js.org/basics/basic-tutorial). Note that the documentation will refer to additional packages that you'll need to complete this implementation.
-
-Be sure to review ALL of the documentation, because there are newer methods that can make these tools much easier to implement. React has gone through several iterations; as such, some React-and-Redux tutorials will assume that you aren't using Hooks.
-
-You'll use the Stripe API to process payments, which includes making front-end and back-end changes. Don't worry, Stripe provides test credentials, so you won't need to use a real credit card to try it out. Refer to the [Stripe docs on testing your integration](https://stripe.com/docs/testing).
-
-## Grading Requirements
-
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-
-This Challenge is graded based on the following criteria:
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-  * Retains all the functionality of the original application.
-
-  * Application must be deployed to Render.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository contains application code.
-
-### Application Quality: 15%
-
-* User experience is intuitive and easy to navigate.
-
-* User interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the Challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains high-quality README file with description, screenshot, and link to the deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository, with a unique name and a README describing the project.
-
----
-
-© 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
