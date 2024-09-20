@@ -24,7 +24,7 @@
   - [Questions](#questions)
 
   ## Installation
-  To run this on your local machine, clone my repository, run npm install, npm run seed and npm run build. Then run npm run develop to start the application. You canl also visit my site on rthe render link provided
+  To run this on your local machine, clone my repository, run npm install, npm run seed and npm run build. Then run npm run develop to start the application. You can also visit my site via the render link provided
 
   ## Usage
   This is an e-commerce site to purhcase goods. 
