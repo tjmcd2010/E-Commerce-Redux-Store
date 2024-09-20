@@ -33,8 +33,12 @@ function CategoryMenu() {
     }
   }, [categoryData, loading, dispatch]);
 
+  
   const handleClick = (id) => {
-    dispatch(UPDATE_CURRENT_CATEGORY(id));
+    dispatch({
+      type: UPDATE_CURRENT_CATEGORY,
+      currentCategory: id,
+    });
   };
 
   return (

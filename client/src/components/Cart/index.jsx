@@ -13,7 +13,7 @@ const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const { cart, cartOpen } = useSelector((state) => state);
+  const state = useSelector((state) => state);
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
   useEffect(() => {
@@ -27,21 +27,21 @@ const Cart = () => {
   useEffect(() => {
     async function getCart() {
       const cart = await idbPromise('cart', 'get');
-      dispatch(ADD_MULTIPLE_TO_CART([...(cart || [])]));
+      dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
     }
 
-    if (!cart?.length) { // Safely check cart length
+    if (!state.cart.length) {
       getCart();
     }
-  }, [cart?.length, dispatch]); // Use optional chaining in dependencies array
+  }, [state.cart.length, dispatch]);
 
   const handleToggleCart = () => {
     dispatch(TOGGLE_CART());
   };
 
-  const calculateTotal = () => {
+  function calculateTotal () {
     let sum = 0;
-    cart.forEach((item) => {
+    state.cart.forEach((item) => {
       sum += item.price * item.purchaseQuantity;
     });
     return sum.toFixed(2);
@@ -50,7 +50,7 @@ const Cart = () => {
   const submitCheckout = () => {
     const productIds = [];
 
-    cart.forEach((item) => {
+    state.cart.forEach((item) => {
       for (let i = 0; i < item.purchaseQuantity; i++) {
         productIds.push(item._id);
       }
@@ -61,7 +61,7 @@ const Cart = () => {
     });
   };
 
-  if (!cartOpen) {
+  if (!state.cartOpen) {
     return (
       <div className="cart-closed" onClick={handleToggleCart}>
         <span role="img" aria-label="trash">
@@ -77,9 +77,9 @@ const Cart = () => {
         [close]
       </div>
       <h2>Shopping Cart</h2>
-      {cart.length ? (
+      {state.cart.length ? (
         <div>
-          {cart.map((item) => (
+          {state.cart.map((item) => (
             <CartItem key={item._id} item={item} />
           ))}
 

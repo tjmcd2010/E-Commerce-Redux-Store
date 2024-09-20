@@ -5,7 +5,8 @@ import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 
 function ProductItem(item) {
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart);
+  const state = useSelector((state) => state);
+  const cart = state;
 
   const {
     image,
@@ -24,7 +25,7 @@ function ProductItem(item) {
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1
       });
     } else {
-      dispatch( ADD_TO_CART({ ...item, purchaseQuantity: 1 }));
+      dispatch({ type: ADD_TO_CART, product: { ...item, purchaseQuantity: 1 }, });
       idbPromise('cart', 'put', { ...item, purchaseQuantity: 1 });
     }
   };
@@ -42,7 +43,7 @@ function ProductItem(item) {
         <div>{quantity} {pluralize("item", quantity)} in stock</div>
         <span>${price}</span>
       </div>
-      <button onClick={ ADD_TO_CART}>Add to cart</button>
+      <button onClick={ addToCart }>Add to cart</button>
     </div>
   );
 }
